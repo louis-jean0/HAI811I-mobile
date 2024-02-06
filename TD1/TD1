@@ -1,0 +1,313 @@
+Exercice n°1
+
+1) 2) Pour ajouter la capacité de saisir du texte, il faut utiliser un EditText en plus 
+du TextView. L'EditText est un composant d'interface utilisateur qui permet à l'utilisateur de taper
+du texte. 
+
+Voici comment on peut modifier le code pour inclure une saisie de texte :
+
+"import android.os.Bundle;
+import android.app.Activity;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class HelloAndroid extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Créer un LinearLayout pour organiser les vues verticalement
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        // Créer un TextView pour afficher "Hello, Android"
+        TextView tv = new TextView(this);
+        tv.setText("Hello, Android");
+
+        // Ajouter le TextView au LinearLayout
+        layout.addView(tv);
+
+        // Créer un EditText pour la saisie de texte
+        EditText editText = new EditText(this);
+        editText.setHint("Tapez quelque chose ici...");
+
+        // Ajouter l'EditText au LinearLayout
+        layout.addView(editText);
+
+        // Utiliser le LinearLayout comme vue de contenu de l'activité
+        setContentView(layout);
+    }
+}"
+
+3) Le premier code crée l'interface utilisateur de manière impérative en Java, tandis que le deuxième code utilise une approche déclarative avec XML pour définir l'interface, ce qui améliore la modularité et la maintenabilité.
+Le premier code montre une création de l'interface utilisateur directement en Java sans utiliser de fichier de mise en page XML, rendant le texte difficile à modifier.
+Le deuxième code utilise un fichier XML pour définir l'interface, ce qui sépare la conception de l'interface de la logique de l'application et facilite la maintenance.
+Le premier code est moins modulaire et plus rigide, tandis que le deuxième suit les bonnes pratiques Android recommandées.
+Le deuxième code, cependant, ne montre pas le code nécessaire pour interagir avec le TextView via son ID dans l'activité Java.
+
+4) On modifie le XML pour rajouter un EditText et on le traite comme ci-dessous dans le Java 
+
+"package com.android.helloandroid;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class HelloAndroid extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_file_name);
+
+        // Référencer le EditText par son ID
+        EditText editText = (EditText) findViewById(R.id.edittext);
+        // Vous pouvez maintenant utiliser editText pour obtenir le texte saisi, etc.
+    }
+}"
+
+Exercice n°2
+
+1) Le code présenté utilise un fichier de ressources XML pour définir des chaînes de texte, ce qui favorise la localisation et la maintenance du texte de l'application.
+Contrairement aux exercices précédents, la mise en page XML contient un Button avec du texte référencé à partir des ressources XML, indiquant une interaction utilisateur possible.
+Le fichier Java charge la mise en page mais ne définit pas de logique d'interaction avec le bouton.
+Cette structure montre une séparation entre la conception de l'interface utilisateur et la logique métier, conformément aux bonnes pratiques en développement Android.
+
+2) "<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- TextView pour afficher le texte -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ma première application Android"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- EditText pour saisir du texte -->
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Saisissez votre texte ici"/>
+
+    <!-- Button déjà présent dans le code précédent -->
+    <Button
+        android:id="@+id/mainbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_label" />
+
+</LinearLayout>"
+
+Exercice n°3
+
+1) Layout 1 (LinearLayout horizontal) :
+
+    - Trois boutons (Button 1, Button 2, Button 3) sont alignés horizontalement. Le Button 3 a un layout_weight de 1, ce qui lui permet de prendre tout l'espace horizontal restant après que les Button 1 et Button 2 aient été disposés selon leur largeur de contenu.
+
+Layout 2 (RelativeLayout) :
+
+    - Button 1 est positionné en haut à gauche par défaut.
+    - Button 3 et Button 2 sont disposés en dessous de Button 1, avec Button 3 à gauche et Button 2 à droite de Button 1.
+    - Un TextView avec le texte "Username :" est placé sous Button 3 avec une marge supérieure de 65dp.
+    - Un EditText pour saisir du texte est aligné à droite de Button 2 et en haut avec TextView.
+    - Button 0 avec le texte "Submit" est aligné à droite et en dessous de EditText.
+
+Layout 3 (TableLayout) :
+
+    - La première ligne (TableRow) contient un TextView et un Button avec les textes "Col 1" et "Col 2".
+    - La deuxième ligne contient un EditText qui s'étend sur deux colonnes avec le texte "Col 1 & 2".
+    - Une ligne rouge (représentée par un View avec un fond rouge) est tracée sous la deuxième ligne.
+    - La troisième ligne contient quatre éléments - trois Button et un TextView - chacun avec le texte "Col 1", "Col 2", "Col 3", et "Col 4".
+    - La quatrième ligne a un Button en position "Col 3".
+    - La cinquième ligne a un Button en position "Col 2".
+
+Chaque disposition organiserait les composants de l'interface utilisateur de manière unique en fonction des propriétés de leur ViewGroup respectif.
+
+Exercice n°4
+
+1) Le code définit une activité Android avec un bouton sur l'écran grâce à un fichier XML de mise en page.
+L'activité Java associe un gestionnaire d'événements à ce bouton pour réagir aux clics.
+Lorsque le bouton est pressé, un message éphémère, appelé "Toast", s'affiche avec le texte "Message Bouton 1".
+Ce message est visible à l'écran pendant une période prolongée avant de disparaître automatiquement.
+
+2) "<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/mainbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainbutton" />
+
+    <!-- Nouveau bouton ajouté -->
+    <Button
+        android:id="@+id/secondbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bouton 2" />
+</LinearLayout>"
+
+"// Configuration du deuxième bouton
+        secondButton = (Button) findViewById(R.id.secondbutton);
+        secondButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Toast.makeText(getApplicationContext(),"Message Bouton 2", Toast.LENGTH_LONG).show();
+            }
+        });"
+
+3) "<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/mainbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mainbutton" />
+
+    <Button
+        android:id="@+id/secondbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bouton 2" />
+
+    <!-- TextView ajouté pour afficher le message -->
+    <TextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="20dp"/>
+</LinearLayout>"
+
+"import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+    private Button button;
+    private Button secondButton;
+    private TextView messageTextView; // Référence pour le TextView
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        button = (Button) findViewById(R.id.mainbutton);
+        secondButton = (Button) findViewById(R.id.secondbutton);
+        messageTextView = (TextView) findViewById(R.id.messageTextView); // Initialisation du TextView
+
+        OnClickListener showMessageListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                messageTextView.setText("Exercice 4"); // Mettre à jour le TextView
+            }
+        };
+
+        // Définir le même gestionnaire d'événements pour les deux boutons
+        button.setOnClickListener(showMessageListener);
+        secondButton.setOnClickListener(showMessageListener);
+    }
+}"
+
+4) Dans le dossier res du projet Android, on peut créer des sous-dossiers pour chaque langue et région que l'on souhaite supporter.
+Par exemple, pour l'anglais (États-Unis), on crée un dossier values-en, pour le français (France), on crée un dossier values-fr.
+Dans chaque dossier de valeurs, on crée un fichier strings.xml contenant les traductions des chaînes utilisées dans l'application.
+
+Exemple pour le français (dans res/values-fr/strings.xml) : 
+
+"<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mainbutton">Bouton 1</string>
+    <string name="button2">Bouton 2</string>
+    <string name="exercise_message">Exercice 4</string>
+</resources>"
+
+Pour l'anglais (dans res/values-en/strings.xml) :
+
+"<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mainbutton">Button 1</string>
+    <string name="button2">Button 2</string>
+    <string name="exercise_message">Exercise 4</string>
+</resources>"
+
+Au lieu de coder en dur les chaînes de texte directement dans le code Java ou dans les fichiers XML de mise en page, on référence les ressources de chaîne par leur nom.
+
+Par exemple, dans le fichier de mise en page XML :
+
+"<Button
+    android:id="@+id/secondbutton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/button2" />"
+
+"messageTextView.setText(R.string.exercise_message);"
+
+5) "import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+    private Button button; // Premier bouton pour le clic court
+    private Button secondButton; // Deuxième bouton pour le clic long
+    private TextView messageTextView;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        button = (Button) findViewById(R.id.mainbutton);
+        secondButton = (Button) findViewById(R.id.secondbutton);
+        messageTextView = (TextView) findViewById(R.id.messageTextView);
+
+        // Gestionnaire d'événements pour le clic court sur le premier bouton
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageTextView.setText(R.string.exercise_message);
+            }
+        });
+
+        // Gestionnaire d'événements pour l'appui long sur le deuxième bouton
+        secondButton.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // Affiche un Toast pour indiquer que le bouton a été longuement pressé
+                Toast.makeText(MainActivity.this, "Appui long détecté", Toast.LENGTH_LONG).show();
+                
+                // Modifier ici pour effectuer l'action souhaitée. Par exemple, mettre à jour le TextView.
+                messageTextView.setText("Appui long sur Bouton 2");
+                
+                // Retourner true pour indiquer que l'événement d'appui long a été consommé.
+                return true;
+            }
+        });
+    }
+}"
+
+Exercice n°5
+
+L'application Android présentée affiche trois cases à cocher pour Linux, macOS, et Windows, ainsi qu'un bouton, organisés verticalement.
+Les textes des éléments d'interface sont définis dans des ressources de chaînes. Un écouteur d'événements est attaché spécifiquement à la case à cocher de Windows.
+Lorsque cette case est cochée, un message "Bro, try Linux :)" est affiché via un Toast. Le comportement du bouton n'est pas détaillé dans le code fourni.
