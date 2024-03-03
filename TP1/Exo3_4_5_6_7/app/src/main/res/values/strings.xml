@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Exo3_4_5_6_7</string>
+    <string name="label_nom">Nom</string>
+    <string name="label_prenom">Prénom</string>
+    <string name="label_age">Âge</string>
+    <string name="label_domaine">Domaine de compétences</string>
+    <string name="label_telephone">Numéro de téléphone</string>
+    <string name="action_valider">Valider</string>
+    <string name="title_activity_affichage">AffichageActivity</string>
+</resources>

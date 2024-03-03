@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="nom" type="id"/>
+    <item name="prenom" type="id"/>
+    <item name="age" type="id"/>
+    <item name="domaine" type="id"/>
+    <item name="telephone" type="id"/>
+    <item name="valider" type="id"/>
+</resources>

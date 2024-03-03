@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exo3_4_5_6_7</string>
+    <string name="label_nom">Name</string>
+    <string name="label_prenom">First Name</string>
+    <string name="label_age">Age</string>
+    <string name="label_domaine">Field of Expertise</string>
+    <string name="label_telephone">Phone Number</string>
+    <string name="action_valider">Validate</string>
+</resources>
