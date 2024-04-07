@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FragmentAffichage">
+
+    <TextView
+        android:id="@+id/textViewNom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nom : "/>
+
+    <TextView
+        android:id="@+id/textViewPrenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prénom : "/>
+
+    <TextView
+        android:id="@+id/textViewNaissance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date de naissance : "/>
+
+    <TextView
+        android:id="@+id/textViewTelephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Téléphone : "/>
+
+    <TextView
+        android:id="@+id/textViewMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adresse mail : "/>
+
+    <TextView
+        android:id="@+id/textViewCentresInterets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Centres d'intérêts : "/>
+
+    <Button
+        android:id="@+id/buttonConfirmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmer"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/buttonRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>
